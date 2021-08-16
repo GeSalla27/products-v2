@@ -12,7 +12,7 @@ export class ProductsService {
     ) {}
 
     async create(createProductDto: CreateProductDto) {
-		return this.productModel.create(createProductDto)
+        return this.productModel.create(createProductDto);
     }
 
     async findAll() {
@@ -21,6 +21,12 @@ export class ProductsService {
 
     async findOne(id: number) {
         return this.productModel.findByPk(id);
+    }
+
+    async findName(name: string) {
+        return this.productModel.findOne({
+            where: { name: name },
+        });
     }
 
     async update(
